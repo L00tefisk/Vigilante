@@ -17,15 +17,15 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: 15.7040625, y: 0, z: 0}
-        inSlope: {x: -9.94377232, y: 0, z: 0}
-        outSlope: {x: -9.94377232, y: 0, z: 0}
-        tangentMode: 0
+        value: {x: 15.6999998, y: 0, z: -1.67999995}
+        inSlope: {x: -9.9424181, y: 0, z: 0}
+        outSlope: {x: -9.9424181, y: 0, z: 0}
+        tangentMode: 581305904
       - time: 3
-        value: {x: -14.1272564, y: 0, z: 0}
-        inSlope: {x: -9.94377232, y: 0, z: 0}
-        outSlope: {x: -9.94377232, y: 0, z: 0}
-        tangentMode: 0
+        value: {x: -14.1272564, y: 0, z: -1.67999995}
+        inSlope: {x: -9.9424181, y: 0, z: 0}
+        outSlope: {x: -9.9424181, y: 0, z: 0}
+        tangentMode: 4
       m_PreInfinity: 2
       m_PostInfinity: 2
     path: 
@@ -68,18 +68,46 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: 15.7040625
-        inSlope: -9.94377232
-        outSlope: -9.94377232
+        value: 15.6999998
+        inSlope: -9.9424181
+        outSlope: -9.9424181
         tangentMode: 10
       - time: 3
         value: -14.1272564
-        inSlope: -9.94377232
-        outSlope: -9.94377232
+        inSlope: -9.9424181
+        outSlope: -9.9424181
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
     attribute: m_LocalPosition.x
+    path: 
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalPosition.y
+    path: 
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -1.67999995
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalPosition.z
     path: 
     classID: 4
     script: {fileID: 0}
