@@ -50,11 +50,9 @@ public class PlayerControl : MonoBehaviour {
 		//Moves plane according to distance
 		rigidbody2D.MovePosition(rigidbody2D.position + (distance * _speed) * Time.deltaTime);
 		
-		//float offset = GetComponent<RectTransform>().pivo Mathf.Sin(_rotation);
 		rigidbody2D.MoveRotation(_rotation);
-		
 		if (Input.GetMouseButton(0)) {
-			Utils.spawnObject("MG_Bullet", new Vector3(transform.position.x + spawnPoint.x, transform.position.y + spawnPoint.y, 0), _rotation);
+			Utils.spawnObject("MG_Bullet", (Vector2)(transform.position) + spawnPoint, _rotation + Random.Range(-2f, 2f));
 		}
 		
 	}
