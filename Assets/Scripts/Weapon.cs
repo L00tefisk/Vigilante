@@ -4,7 +4,7 @@ using System.Collections;
 public class Weapon 
 {
 	private string name;
-	private int fireRate;
+	private float fireRate;
 	private int accuracy;
 	private float fire_reshoot_track = 0f;
 	//private Bullet bulletType;
@@ -12,10 +12,10 @@ public class Weapon
 	private bool isShooting = true;
 	private float delay = 0;
 	
-	public Weapon (string name, int fireRate, int accuracy) 
+	public Weapon (string name, float fireRate, int accuracy) 
 	{
 		this.name = name;
-		this.fireRate = fireRate / 10000;
+		this.fireRate = 60 / fireRate;
 		this.accuracy = accuracy;
 		//this.bulletType = bulletType;
 	}

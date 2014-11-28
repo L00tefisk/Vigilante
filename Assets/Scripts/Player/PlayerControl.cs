@@ -21,7 +21,7 @@ public class PlayerControl : MonoBehaviour {
 		_RSP = _speed * (5 / 3); //Rotation Speed
 		spawnPoint = transform.Find("spawnPoint").position;
 		
-		wep = new Weapon("MG_Bullet", 1000, 100);
+		wep = new Weapon("MG_Bullet", 300, 98);
 	}
 	
 	// Update is called once per frame

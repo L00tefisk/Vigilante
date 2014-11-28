@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class MoveBullet : MonoBehaviour {
-	private int damage = 3;
+	private int damage = 15;
   	public int speed = 20;
   	private float rotation;
   	Vector2 velocityModifier;
