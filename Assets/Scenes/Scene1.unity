@@ -401,7 +401,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 393cc6a6cc1b01e4e85c3a70a8a88570, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 393cc6a6cc1b01e4e85c3a70a8a88570, type: 2}
       propertyPath: _speed
