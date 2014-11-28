@@ -12,6 +12,7 @@ public class PlayerControl : MonoBehaviour {
 	private Vector2 distance;
 	private Vector2 mousePos;
 	private Vector2 spawnPoint;
+	private Weapon wep;
 	
 	// Use this for initialization
 	void Start () {
@@ -19,6 +20,8 @@ public class PlayerControl : MonoBehaviour {
 		_maxRot = 85f;
 		_RSP = _speed * (5 / 3); //Rotation Speed
 		spawnPoint = transform.Find("spawnPoint").position;
+		
+		wep = new Weapon("MG_Bullet", 1000, 100);
 	}
 	
 	// Update is called once per frame
@@ -49,12 +52,10 @@ public class PlayerControl : MonoBehaviour {
 		}
 		//Moves plane according to distance
 		rigidbody2D.MovePosition(rigidbody2D.position + (distance * _speed) * Time.deltaTime);
-		
 		rigidbody2D.MoveRotation(_rotation);
 		if (Input.GetMouseButton(0)) {
-			Utils.spawnObject("MG_Bullet", (Vector2)(transform.position) + spawnPoint, _rotation + Random.Range(-2f, 2f));
+			wep.Shoot((Vector2)(transform.position) + spawnPoint, _rotation);
 		}
-		
 	}
 }
 

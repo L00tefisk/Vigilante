@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MoveBullet : MonoBehaviour {
-	private int damage = 3;
-  	public int speed = 20;
-  	private float rotation;
-  	Vector2 velocityModifier;
-  	
-	void Start () {
-  	}
+public class Bullet : MonoBehaviour {
+	private int damage;
+	private int speed;
+	private float rotation;
+	Vector2 velocityModifier;
+	
+	public Bullet (int damage, int speed) {
+		this.damage = damage;
+		this.speed = speed;
+	}
 	// Update is called once per frame
 	void Update () {
-	
 		rotation = transform.localEulerAngles.z  * (Mathf.PI / 180);
 		velocityModifier = new Vector2(Mathf.Cos(rotation), Mathf.Sin(rotation));                    		   
 		transform.position = (Vector2)transform.position + speed * velocityModifier * Time.deltaTime;
@@ -21,7 +22,6 @@ public class MoveBullet : MonoBehaviour {
 		}
 		
 	}
-	
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.tag == "Enemy") {
 			coll.gameObject.SendMessage("Damage", damage);
