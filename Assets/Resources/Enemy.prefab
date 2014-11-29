@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 58: {fileID: 5800002}
+  - 60: {fileID: 6000000}
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
   - 95: {fileID: 9500000}
@@ -81,11 +82,29 @@ CircleCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Radius: .821265697
   m_Center: {x: -.170000002, y: 0}
+--- !u!60 &6000000
+PolygonCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Poly:
+    m_Paths:
+    - - {x: -.170397282, y: .785838127}
+      - {x: .966655016, y: -.166912973}
+      - {x: .763604403, y: -.721974254}
+      - {x: -.0530660152, y: -.822253048}
+      - {x: -.790140867, y: -.365600646}
+      - {x: -.949816942, y: .0149388947}
+      - {x: -.892417908, y: .417051375}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3

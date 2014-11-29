@@ -2,10 +2,11 @@
 using System.Collections;
 
 public class Bullet : MonoBehaviour {
+	private string name;
 	private int damage;
 	private int speed;
 	private float rotation;
-	Vector2 velocityModifier;
+	private Vector2 velocityModifier;
 	
 	public Bullet (int damage, int speed) {
 		this.damage = damage;
