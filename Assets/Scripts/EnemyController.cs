@@ -19,7 +19,7 @@ public class EnemyController : MonoBehaviour {
 	void Update () {
 		rigidbody2D.AddForce(new Vector2(-1, 0) * speed * 40 * Time.deltaTime);
 		
-		if (rigidbody2D.position.x < 0) {
+		if (rigidbody2D.position.x < -20) {
 			Nuke();
 		}
 	}
