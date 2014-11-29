@@ -25,19 +25,9 @@ public class Weapon
 		if (fire_reshoot_track < Time.time)
 		{
 			float random = (100  - accuracy) * 0.90f;
-			Debug.Log("Shooting " + name);
 			Utils.spawnObject(name, position, rotation + Random.Range(-random, random));
 			fire_reshoot_track = Time.time + fireRate;
 		}
-		/*while (isShooting) {
-      		float random = (100  - accuracy) * 0.90f;
-			if (delay > 1000) {
-				Debug.Log("Shooting " + name);
-				//Utils.spawnObject(name, position, rotation + Random.Range(-random, random));
-				delay = 0;
-			}
-			delay += Time.deltaTime * 1000;
-		}*/
 	}
 }
 

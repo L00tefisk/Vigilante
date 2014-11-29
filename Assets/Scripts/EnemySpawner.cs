@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour {
         time += (int)(Time.deltaTime * 1000);
       	if (time >= spawnDelay) {
       		time = 0;
-			Utils.spawnObject("Enemy", new Vector3(transform.position.x, Random.Range(0, 5), 0), 0);
+			Utils.spawnObject("Enemy", new Vector3(transform.position.x, Random.Range(-5, 5), 0), 0);
       	}
 	}
 }

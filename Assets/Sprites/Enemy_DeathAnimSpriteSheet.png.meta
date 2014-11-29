@@ -1,0 +1,267 @@
+fileFormatVersion: 2
+guid: c7c95a5c4e19b9f478a40ad1e8a2dc0d
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Enemy_DeathAnimSpriteSheet_0
+    21300002: Enemy_DeathAnimSpriteSheet_1
+    21300004: Enemy_DeathAnimSpriteSheet_2
+    21300006: Enemy_DeathAnimSpriteSheet_3
+    21300008: Enemy_DeathAnimSpriteSheet_4
+    21300010: Enemy_DeathAnimSpriteSheet_5
+    21300012: Enemy_DeathAnimSpriteSheet_6
+    21300014: Enemy_DeathAnimSpriteSheet_7
+    21300016: Enemy_DeathAnimSpriteSheet_8
+    21300018: Enemy_DeathAnimSpriteSheet_9
+    21300020: Enemy_DeathAnimSpriteSheet_10
+    21300022: Enemy_DeathAnimSpriteSheet_11
+    21300024: Enemy_DeathAnimSpriteSheet_12
+    21300026: Enemy_DeathAnimSpriteSheet_13
+    21300028: Enemy_DeathAnimSpriteSheet_14
+    21300030: Enemy_DeathAnimSpriteSheet_15
+    21300032: Enemy_DeathAnimSpriteSheet_16
+    21300034: Enemy_DeathAnimSpriteSheet_17
+    21300036: Enemy_DeathAnimSpriteSheet_18
+    21300038: Enemy_DeathAnimSpriteSheet_19
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Enemy_DeathAnimSpriteSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3235
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_DeathAnimSpriteSheet_1
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 3235
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_DeathAnimSpriteSheet_2
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 3235
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_DeathAnimSpriteSheet_3
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 3235
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_DeathAnimSpriteSheet_4
+      rect:
+        serializedVersion: 2
+        x: 1676
+        y: 3235
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_DeathAnimSpriteSheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2374
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_DeathAnimSpriteSheet_6
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 2374
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_DeathAnimSpriteSheet_7
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 2374
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_DeathAnimSpriteSheet_8
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 2374
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_DeathAnimSpriteSheet_9
+      rect:
+        serializedVersion: 2
+        x: 1676
+        y: 2374
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_DeathAnimSpriteSheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1513
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_DeathAnimSpriteSheet_11
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 1513
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_DeathAnimSpriteSheet_12
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 1513
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_DeathAnimSpriteSheet_13
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 1513
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_DeathAnimSpriteSheet_14
+      rect:
+        serializedVersion: 2
+        x: 1676
+        y: 1513
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_DeathAnimSpriteSheet_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 652
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_DeathAnimSpriteSheet_16
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 652
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_DeathAnimSpriteSheet_17
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 652
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_DeathAnimSpriteSheet_18
+      rect:
+        serializedVersion: 2
+        x: 1257
+        y: 652
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy_DeathAnimSpriteSheet_19
+      rect:
+        serializedVersion: 2
+        x: 1676
+        y: 652
+        width: 419
+        height: 419
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
