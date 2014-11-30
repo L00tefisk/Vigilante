@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour {
 	int score;
 	private bool isAlive;
 	private Animator anim;
+	Vector2 velmod;
 	// Use this for initialization
 	void Start () {
 		isAlive = true;
@@ -17,7 +18,8 @@ public class EnemyController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		rigidbody2D.AddForce(new Vector2(-1, 0) * speed * 40 * Time.deltaTime);
+		velmod = Utils.getVelocityModifier(transform.localEulerAngles.z-180);
+		rigidbody2D.AddForce(speed * velmod * 40 * Time.deltaTime);
 		
 		if (rigidbody2D.position.x < -20) {
 			Nuke();

@@ -10,11 +10,8 @@ public class MoveBullet : MonoBehaviour {
 	void Start () {
   	}
 	// Update is called once per frame
-	void Update () {
-	
-		rotation = transform.localEulerAngles.z  * (Mathf.PI / 180);
-		velocityModifier = new Vector2(Mathf.Cos(rotation), Mathf.Sin(rotation));                    		   
-		transform.position = (Vector2)transform.position + speed * velocityModifier * Time.deltaTime;
+	void Update () {           		   
+		transform.position = (Vector2)transform.position + speed * Utils.getVelocityModifier(transform.localEulerAngles.z) * Time.deltaTime;
 		//rigidbody2D.AddForce(new Vector2(speed * Time.deltaTime, 0));
 		if (!renderer.isVisible) {
 			Destroy(this.gameObject);
