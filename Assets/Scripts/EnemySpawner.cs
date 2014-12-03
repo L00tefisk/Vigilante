@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour {
   	int spawnDelay;
 	// Use this for initialization
 	void Start () {
-	    spawnDelay = 2000;
+	    spawnDelay = 1000;
 		time = spawnDelay;
 	}
 	

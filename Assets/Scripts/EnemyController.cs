@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour {
 	void Start () {
 		isAlive = true;
 		speed = 20;
-		hp = 100;
+		hp = 50;
 		anim = GetComponent<Animator>();
 	}
 	
@@ -37,6 +37,7 @@ public class EnemyController : MonoBehaviour {
 		rigidbody2D.gravityScale = 1;
 		anim.SetTrigger("Die");
 		Invoke ("Nuke", 3);
+		GetComponent<PolygonCollider2D>().enabled = false;
 	}
 	void Nuke() {
 		Destroy(this.gameObject);
