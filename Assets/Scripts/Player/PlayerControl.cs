@@ -18,7 +18,7 @@ public class PlayerControl : MonoBehaviour {
 	void Start () {
 		_speed = 10;//Max speed = 100 (Same speed as mouse);
 		_maxRot = 85f;
-		_RSP = _speed * (5 / 3); //Rotation Speed
+		_RSP = (_speed * (5 / 3)) / 2; //Rotation Speed
 		spawnPoint = transform.Find("spawnPoint").position;
 		
 		wep = new Weapon("MG_Bullet", 300, 98);
