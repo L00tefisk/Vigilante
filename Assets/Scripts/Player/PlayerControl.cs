@@ -1,11 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerControl : MonoBehaviour {
-
-	public int _speed;
+public class PlayerControl : Character {
 	private float _RSP;
-	private float _rotation;
 	private float _cm;
 	private float _rp;
 	private float _maxRot;
@@ -15,17 +12,18 @@ public class PlayerControl : MonoBehaviour {
 	private Weapon wep;
 	
 	// Use this for initialization
-	void Start () {
-		_speed = 10;//Max speed = 100 (Same speed as mouse);
+	protected override void Start () {
+		HP = 100;
+		Speed = 10;//Max speed = 100 (Same speed as mouse);
 		_maxRot = 85f;
-		_RSP = (_speed * (5 / 3)) / 2; //Rotation Speed
+		_RSP = (Speed * (5 / 3) / 1.1f); //Rotation Speed
 		spawnPoint = transform.Find("spawnPoint").position;
 		
 		wep = new Weapon("MG_Bullet", 300, 98);
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	protected override void Update () {
 		
 		//Gets mouse position
 		mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition + new Vector3(0,0, (transform.position - Camera.main.transform.position).z));
@@ -38,24 +36,33 @@ public class PlayerControl : MonoBehaviour {
 		if (_rp < -_maxRot)
 		{
 			_rp = _cm;
-			_rotation = -_maxRot;
+			Rotation = -_maxRot;
 		}
 		else if (_rp > _maxRot)
 		{
 			_rp = _cm;
-			_rotation = _maxRot;
+			Rotation = _maxRot;
 		}
 		else
 		{
-			_rotation = _cm;
+			Rotation = _cm;
 			_rp = _cm;
 		}
 		//Moves plane according to distance
-		rigidbody2D.MovePosition(rigidbody2D.position + (distance * _speed) * Time.deltaTime);
-		rigidbody2D.MoveRotation(_rotation);
+		rigidbody2D.MovePosition(rigidbody2D.position + (distance * Speed) * Time.deltaTime);
+		rigidbody2D.MoveRotation(Mathf.Clamp(Rotation, -_maxRot, _maxRot));
+		
 		if (Input.GetMouseButton(0)) {
-			wep.Shoot((Vector2)(transform.position) + spawnPoint, _rotation);
+			wep.Shoot((Vector2)(transform.position) + spawnPoint, Rotation);
 		}
 	}
+	public int getHP () {
+		return Mathf.FloorToInt(HP);
+	}
+	
+	protected override void Kill () {
+		//Invoke ("Nuke", 3);
+	}
+	
 }
 

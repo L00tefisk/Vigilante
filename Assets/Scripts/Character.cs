@@ -2,24 +2,24 @@
 using System.Collections;
 
 public abstract class Character : MonoBehaviour {
-	public int _speed;
-	public float _hp;
-	public float _rotation;
-	public bool _isAlive;
+	protected int Speed;
+	protected float HP;
+	protected float Rotation;
+	protected bool IsAlive = true;
 
-	public abstract void Start ();
+	protected virtual void Start () {}
 
-	public abstract void Update ();
+	protected virtual void Update () {}
 
-	public void Damage(float damage) {
-		_hp -= damage;
+	protected void Damage(float damage) {
+		HP -= damage;
 		
-		if (_hp <= 0 && _isAlive)
+		if (HP <= 0 && IsAlive)
 			Kill();
 	}
-	public abstract void Kill();
+	protected abstract void Kill();
 
-	public void Nuke() {
+	protected void Nuke() {
 		Destroy(this.gameObject);
 	}
 }

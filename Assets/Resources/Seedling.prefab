@@ -9,12 +9,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 58: {fileID: 5800002}
-  - 60: {fileID: 6000000}
+  - 58: {fileID: 5800000}
   - 50: {fileID: 5000000}
   - 114: {fileID: 11400000}
   - 95: {fileID: 9500000}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Seedling
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +30,7 @@ GameObject:
   - 4: {fileID: 400002}
   - 212: {fileID: 21200000}
   m_Layer: 0
-  m_Name: enemy
+  m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,19 +76,8 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!58 &5800002
+--- !u!58 &5800000
 CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 0
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Radius: .821265697
-  m_Center: {x: -.170000002, y: 0}
---- !u!60 &6000000
-PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -96,15 +85,19 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Poly:
-    m_Paths:
-    - - {x: -.170397282, y: .785838127}
-      - {x: .966655016, y: -.166912973}
-      - {x: .763604403, y: -.721974254}
-      - {x: -.0530660152, y: -.822253048}
-      - {x: -.790140867, y: -.365600646}
-      - {x: -.949816942, y: .0149388947}
-      - {x: -.892417908, y: .417051375}
+  m_Radius: .459157944
+  m_Center: {x: .340000004, y: 0}
+--- !u!58 &5800002
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Radius: .400000006
+  m_Center: {x: -.219999999, y: 0}
 --- !u!95 &9500000
 Animator:
   serializedVersion: 3
@@ -128,9 +121,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a9bf053bdba73e4384034ee2a961942, type: 3}
+  m_Script: {fileID: 11500000, guid: 59b5b247f02c1a04fab23305080573c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 0
+  _hp: 0
+  _rotation: 0
+  _isAlive: 1
+  _essence: 0
+  _lifetime: 0
+  anim: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -151,7 +151,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b4f4ecd527ece18458f6173199f7c861, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6821ec4e4481f1842ad42cd84f21ae8f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
