@@ -5,6 +5,7 @@ public class Seedling : Enemy {
 	Vector2 velmod;
 	// Use this for initialization
 	protected override void Start () {
+		damageSound = (AudioClip)Resources.Load("Sounds/impact-knova");
 		Lifetime = 0;
 		CollisionDamage = 10;
 		Essence = 10;

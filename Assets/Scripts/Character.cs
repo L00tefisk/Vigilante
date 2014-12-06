@@ -3,6 +3,7 @@ using System.Collections;
 
 public abstract class Character : MonoBehaviour {
 	protected int Speed;
+	protected AudioClip damageSound;
 	protected float HP;
 	protected float Rotation;
 	protected bool IsAlive = true;
@@ -13,7 +14,7 @@ public abstract class Character : MonoBehaviour {
 
 	protected void Damage(float damage) {
 		HP -= damage;
-		
+		audio.PlayOneShot(damageSound);
 		if (HP <= 0 && IsAlive)
 			Kill();
 	}

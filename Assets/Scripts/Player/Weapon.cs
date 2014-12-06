@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Weapon 
 {
+	private AudioClip gunShot = (AudioClip)Resources.Load("Sounds/MG_Shoot_Master");
 	private string name;
 	private float fireRate;
 	private int accuracy;
@@ -25,6 +26,7 @@ public class Weapon
 		if (fire_reshoot_track < Time.time)
 		{
 			float random = (100  - accuracy) * 0.90f;
+			Utils.getPlayerObject().audio.PlayOneShot(gunShot);
 			Utils.spawnObject(name, position, rotation + Random.Range(-random, random));
 			fire_reshoot_track = Time.time + fireRate;
 		}

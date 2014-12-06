@@ -10,6 +10,7 @@ public class PlayerControl : Character {
 	private Vector2 mousePos;
 	private Vector2 spawnPoint;
 	private Weapon wep;
+	private bool _autoShoot;
 	
 	// Use this for initialization
 	protected override void Start () {
@@ -20,6 +21,7 @@ public class PlayerControl : Character {
 		spawnPoint = transform.Find("spawnPoint").position;
 		
 		wep = new Weapon("MG_Bullet", 300, 98);
+		_autoShoot = false;
 	}
 	
 	// Update is called once per frame
@@ -51,8 +53,10 @@ public class PlayerControl : Character {
 		//Moves plane according to distance
 		rigidbody2D.MovePosition(rigidbody2D.position + (distance * Speed) * Time.deltaTime);
 		rigidbody2D.MoveRotation(Mathf.Clamp(Rotation, -_maxRot, _maxRot));
-		
-		if (Input.GetMouseButton(0)) {
+		if (Input.GetKeyDown(KeyCode.A))
+			_autoShoot = !_autoShoot;
+		    
+		if (Input.GetMouseButton(0) || _autoShoot) {
 			wep.Shoot((Vector2)(transform.position) + spawnPoint, Rotation);
 		}
 	}
