@@ -3,9 +3,7 @@ using System.Collections;
 
 public class PlayerControl : Character {
 	private float _RSP;
-	private float _cm;
-	private float _rp;
-	private float _maxRot;
+	private float _maxRotation;
 	private Vector2 distance;
 	private Vector2 mousePos;
 	private Vector2 spawnPoint;
@@ -16,11 +14,11 @@ public class PlayerControl : Character {
 	protected override void Start () {
 		HP = 100;
 		Speed = 10;//Max speed = 100 (Same speed as mouse);
-		_maxRot = 85f;
-		_RSP = (Speed * (5 / 3) / 1.1f); //Rotation Speed
+		_maxRotation = 85f;
+		_RSP = (Speed * (5 / 3) / 1.9f); //Rotation Speed
 		spawnPoint = transform.Find("spawnPoint").position;
 		
-		wep = new Weapon("MG_Bullet", 300, 98);
+		wep = new Weapon("MG_Bullet", 400, 98);
 		_autoShoot = false;
 	}
 	
@@ -33,26 +31,12 @@ public class PlayerControl : Character {
 		//Calculates distance between plane and cursor
 		distance = (mousePos - (Vector2)transform.position);
 
-		_cm = (distance.y * _RSP);
-		//Sets a rotation limit for the plane, the double variables prevent the plane's rotation from changing when over the limit
-		if (_rp < -_maxRot)
-		{
-			_rp = _cm;
-			Rotation = -_maxRot;
-		}
-		else if (_rp > _maxRot)
-		{
-			_rp = _cm;
-			Rotation = _maxRot;
-		}
-		else
-		{
-			Rotation = _cm;
-			_rp = _cm;
-		}
+		Rotation = distance.y * _RSP;
 		//Moves plane according to distance
 		rigidbody2D.MovePosition(rigidbody2D.position + (distance * Speed) * Time.deltaTime);
-		rigidbody2D.MoveRotation(Mathf.Clamp(Rotation, -_maxRot, _maxRot));
+		
+		rigidbody2D.MoveRotation(Mathf.Clamp(Rotation, -_maxRotation, _maxRotation));
+		
 		if (Input.GetKeyDown(KeyCode.A))
 			_autoShoot = !_autoShoot;
 		    
