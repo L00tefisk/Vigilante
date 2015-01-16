@@ -1,51 +1,18 @@
-# =============== #
-# Unity generated #
-# =============== #
-Temp/
-Obj/
-UnityGenerated/
-Library/
-Resources(Non Unity)/
+# Ignore everything
+/*
+/*/
  
-# ===================================== #
-# Visual Studio / MonoDevelop generated #
-# ===================================== #
-ExportedObj/
-*.svd
-*.userprefs
-*.csproj
-*.pidb
-*.suo
-*.sln
-*.user
-*.unityproj
-*.booproj
+# Inverse ignore some stuff
+!/Assets/
+!/ProjectSettings/
+!.gitignore
  
-# ============ #
-# OS generated #
-# ============ #
+#OS Stuff
 .DS_Store
-.DS_Store?
 ._*
 .Spotlight-V100
 .Trashes
-Icon?
 ehthumbs.db
 Thumbs.db
-
-# Icon must end with two \r
-Icon
-
-# Thumbnails
-._*
-
-# Files that might appear on external disk
-.Spotlight-V100
-.Trashes
-
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+$RECYCLE.BIN/
+Desktop.ini
