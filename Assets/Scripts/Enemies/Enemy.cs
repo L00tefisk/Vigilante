@@ -9,7 +9,7 @@ public class Enemy : Character {
 	
 	protected override void Kill () {
 		IsAlive = false;
-		rigidbody2D.gravityScale = 1;
+		GetComponent<Rigidbody2D>().gravityScale = 1;
 		UImanager.Score += Essence;
 		Anim.SetTrigger("Die");
 		Invoke ("Nuke", 3);

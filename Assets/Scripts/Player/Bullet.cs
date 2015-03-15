@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour {
 		velocityModifier = new Vector2(Mathf.Cos(rotation), Mathf.Sin(rotation));                    		   
 		transform.position = (Vector2)transform.position + speed * velocityModifier * Time.deltaTime;
 		//rigidbody2D.AddForce(new Vector2(speed * Time.deltaTime, 0));
-		if (!renderer.isVisible) {
+		if (!GetComponent<Renderer>().isVisible) {
 			Destroy(this.gameObject);
 		}
 		

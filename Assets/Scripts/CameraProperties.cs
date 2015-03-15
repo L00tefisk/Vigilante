@@ -6,7 +6,7 @@ public class CameraProperties : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Screen.showCursor = false;
+		Cursor.visible = false;
 		GetComponent<Camera>().transparencySortMode = TransparencySortMode.Orthographic;
 	}
 	

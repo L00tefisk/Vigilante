@@ -33,9 +33,9 @@ public class PlayerControl : Character {
 
 		Rotation = distance.y * _RSP;
 		//Moves plane according to distance
-		rigidbody2D.MovePosition(rigidbody2D.position + (distance * Speed) * Time.deltaTime);
+		GetComponent<Rigidbody2D>().MovePosition(GetComponent<Rigidbody2D>().position + (distance * Speed) * Time.deltaTime);
 		
-		rigidbody2D.MoveRotation(Mathf.Clamp(Rotation, -_maxRotation, _maxRotation));
+		GetComponent<Rigidbody2D>().MoveRotation(Mathf.Clamp(Rotation, -_maxRotation, _maxRotation));
 		
 		if (Input.GetKeyDown(KeyCode.A))
 			_autoShoot = !_autoShoot;

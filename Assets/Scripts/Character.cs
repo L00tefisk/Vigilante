@@ -14,7 +14,7 @@ public abstract class Character : MonoBehaviour {
 
 	protected void Damage(float damage) {
 		HP -= damage;
-		audio.PlayOneShot(damageSound);
+		GetComponent<AudioSource>().PlayOneShot(damageSound);
 		if (HP <= 0 && IsAlive)
 			Kill();
 	}
