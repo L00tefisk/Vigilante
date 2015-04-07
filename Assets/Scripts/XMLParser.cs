@@ -13,7 +13,7 @@ public class XMLParser : MonoBehaviour
 	private string projectPath;
 	
 	void Start()
-	{ //Timeline of the Level creator
+	{ 
 		string projectPath = Application.dataPath + "/Levels/";
 		
 		if (projectPath != "") {
@@ -24,7 +24,22 @@ public class XMLParser : MonoBehaviour
 		}
 		//ImportLevels();
 	}
-	public Level Deserialize(string filename) //Returns a deserialized object.
+	
+	public void TypeSerialize(System.Object obj, string filename) 
+	{
+		Type t = obj.GetType();
+		string filePath = projectPath + filename + ".xml";
+		XmlSerializer serializer = new XmlSerializer(t);
+		
+		TextWriter writer = new StreamWriter(filePath);
+		
+		Debug.Log("Serializing " + filePath);
+		serializer.Serialize(writer, obj);
+		writer.Close();
+  }
+  
+  
+  public Level Deserialize(string filename) //Returns a deserialized object.
 	{ 
 		string filePath = projectPath + filename + ".xml";
 		XmlSerializer serializer = new XmlSerializer(typeof(Level));
@@ -44,7 +59,7 @@ public class XMLParser : MonoBehaviour
 		return i;
   }
   public void Serialize(Level level, string filename) 
-	{
+  {
 		string filePath = projectPath + filename + ".xml";
     	XmlSerializer serializer = new XmlSerializer(typeof(Level));
     	
