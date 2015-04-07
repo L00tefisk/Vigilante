@@ -5,6 +5,8 @@ public class Enemy : Character {
 	protected int Essence;
 	protected int CollisionDamage;
 	protected float Lifetime;
+	protected float startY;
+	protected float maxY;
 	protected Animator Anim;
 	
 	protected override void Kill () {

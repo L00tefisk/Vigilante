@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="unicode"?>
+<level>
+  <map>Ice</map>
+  <wave>
+	  <time>5</time>
+	  <enemytype>Seedling</enemytype>
+	  <amount>3</amount>
+	  <pattern>Line</pattern>
+  </wave>
+  <wave>
+	  <time>10</time>
+	  <enemytype>Seedling</enemytype>
+	  <amount>4</amount>
+	  <pattern>Square</pattern>
+  </wave>
+</level>

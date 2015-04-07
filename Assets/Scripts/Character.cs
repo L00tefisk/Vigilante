@@ -7,8 +7,10 @@ public abstract class Character : MonoBehaviour {
 	protected float HP;
 	protected float Rotation;
 	protected bool IsAlive = true;
+	protected Rigidbody2D rigidbody2D;
 
-	protected virtual void Start () {}
+	protected virtual void Start () {
+	}
 
 	protected virtual void Update () {}
 
