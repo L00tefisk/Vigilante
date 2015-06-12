@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Level xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <map>Ice</map>
+  <Waves>
+    <Wave>
+      <time>5</time>
+      <enemytype>Seedling</enemytype>
+      <amount>3</amount>
+      <pattern>Line</pattern>
+    </Wave>
+    <Wave>
+      <time>10</time>
+      <enemytype>Seedling</enemytype>
+      <amount>4</amount>
+      <pattern>Square</pattern>
+    </Wave>
+  </Waves>
+</Level>
