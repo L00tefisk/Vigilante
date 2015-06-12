@@ -7,15 +7,14 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
 
-public class XMLParser : MonoBehaviour
+public class XMLParser
 {	
-	private string assetPath;
 	private string projectPath;
 	
-	void Start ()
-	{ 
+	public XMLParser(string assetPath) {
 		assetPath = "/Resources/Levels/";
 		projectPath = Application.dataPath + assetPath;
+		/*
 		
 		if (projectPath != "") {
 			Debug.Log ("Running in " + projectPath);
@@ -23,7 +22,8 @@ public class XMLParser : MonoBehaviour
 			Serialize (level, "test2");
 			Debug.Log ("Success!");
 		}
-		//ImportLevels();
+		
+		*/
 	}
 	
 	public void Serialize (System.Object obj, string filename)

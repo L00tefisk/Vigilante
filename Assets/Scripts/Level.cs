@@ -3,8 +3,9 @@ using System.Collections.Generic;
 
 public class Level
 {
-	public string map;
-	public List<Wave> Waves;
+	//Everything has to be public for XML Serialization to work
+	public string map  { get; private set; }
+	public List<Wave> Waves { get; private set; }
 	
 	public enum Pattern
 	{
@@ -12,7 +13,7 @@ public class Level
 		Square,
 		Circle
 	}
-	
+	//May the gods have mercy
 	public struct Wave
 	{
 		public int time;
