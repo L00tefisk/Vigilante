@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class Enemy : Character {
 	protected int Essence;
@@ -8,6 +8,12 @@ public class Enemy : Character {
 	protected float startY;
 	protected float maxY;
 	protected Animator Anim;
+	
+	protected List<Level.Move> moveset;
+	
+	public void SetMoveset(List<Level.Move> moveset) {
+		this.moveset = moveset;
+	}
 	
 	protected override void Kill () {
 		IsAlive = false;
@@ -26,4 +32,5 @@ public class Enemy : Character {
 			Kill();
 		}
 	}
+	
 }

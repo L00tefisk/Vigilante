@@ -13,10 +13,11 @@ public class Editor : MonoBehaviour {
 		wave.time = 5;
 		
 		wave.moveset = new List<Level.Move>();
-		Level.Move set = new Level.Move("Line", 1);
-		wave.moveset.Add(new Level.Move("Circle", 3));
-		wave.moveset.Add(new Level.Move("Wait", 1)); 
-		wave.moveset.Add(new Level.Move("Sine", 2));
+		Level.Move set = new Level.Move(Level.Motion.Line, 1);
+		wave.moveset.Add(set);
+		wave.moveset.Add(new Level.Move(Level.Motion.Circle, 3));
+		wave.moveset.Add(new Level.Move(Level.Motion.Wait, 1)); 
+		wave.moveset.Add(new Level.Move(Level.Motion.Sine, 2));
 		
 		
 		level.addToWaveList(wave);

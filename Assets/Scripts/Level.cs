@@ -8,7 +8,6 @@ public class Level
 	//Everything has to be public for XML Serialization to work
 	public string map  { get; private set; }
 	public List<Wave> Waves { get; private set; }
-	//May the gods have mercy
 	
 	public enum Formation
 	{
@@ -16,29 +15,30 @@ public class Level
 		Square,
 		Circle
 	}
-	/*
+	
 	public enum Motion
 	{
-		Line,
-		Circle,
-		Sine,
-		Wait
-	}*/
+		[XmlText]Line,
+		[XmlText]Circle,
+		[XmlText]Sine,
+		[XmlText]Wait
+	}
 
 	public struct Move
 	{
-		[XmlText]
-		public string motion;
+		[XmlEnum]
+		public Motion motion;
 		
 		[XmlAttribute]
 		public int duration;
 		
-		public Move (string motion, int duration) {
+		public Move (Motion motion, int duration) {
 			this.motion = motion;
 			this.duration = duration;
 		}
 	}
 	
+	//May the gods have mercy
 	public struct Wave
 	{
 		public int time;

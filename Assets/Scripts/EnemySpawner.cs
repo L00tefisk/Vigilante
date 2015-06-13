@@ -20,7 +20,7 @@ public class EnemySpawner : MonoBehaviour {
 		
 		XMLParser parser = new XMLParser("/Resources/Levels/");
 		
-		Level level1 = parser.Deserialize<Level>("test");
+		Level level1 = parser.Deserialize<Level>("newlevel");
 		levelList.Add(level1);
 		//ImportLevels();
 		

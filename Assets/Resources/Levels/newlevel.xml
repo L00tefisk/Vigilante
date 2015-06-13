@@ -7,9 +7,18 @@
       <amount>4</amount>
       <formation>Line</formation>
       <moveset>
-        <Move duration="3">Circle</Move>
-        <Move duration="1">Wait</Move>
-        <Move duration="2">Sine</Move>
+        <Move duration="1">
+          <motion>Line</motion>
+        </Move>
+        <Move duration="3">
+          <motion>Circle</motion>
+        </Move>
+        <Move duration="1">
+          <motion>Wait</motion>
+        </Move>
+        <Move duration="2">
+          <motion>Sine</motion>
+        </Move>
       </moveset>
     </Wave>
   </Waves>
