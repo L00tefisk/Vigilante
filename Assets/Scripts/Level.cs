@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Xml;
+using System.Xml.Serialization;
 using System.Collections.Generic;
 
 public class Level
@@ -6,20 +8,44 @@ public class Level
 	//Everything has to be public for XML Serialization to work
 	public string map  { get; private set; }
 	public List<Wave> Waves { get; private set; }
+	//May the gods have mercy
 	
-	public enum Pattern
+	public enum Formation
 	{
 		Line,
 		Square,
 		Circle
 	}
-	//May the gods have mercy
+	/*
+	public enum Motion
+	{
+		Line,
+		Circle,
+		Sine,
+		Wait
+	}*/
+
+	public struct Move
+	{
+		[XmlText]
+		public string motion;
+		
+		[XmlAttribute]
+		public int duration;
+		
+		public Move (string motion, int duration) {
+			this.motion = motion;
+			this.duration = duration;
+		}
+	}
+	
 	public struct Wave
 	{
 		public int time;
 		public string enemytype;
 		public int amount;
-		public Pattern pattern;
+		public Formation formation;
+		public List<Move> moveset;
 	}
 	
 	public Level()
@@ -32,13 +58,13 @@ public class Level
 		this.Waves.Add(wave);
 	}
  	
-	public void addToWaveList(int time, string enemytype, int amount, Pattern pattern)
+	public void addToWaveList(int time, string enemytype, int amount, Formation formation)
 	{
 		Wave wave = new Wave();
 		wave.time = time;
 		wave.enemytype = enemytype;
 		wave.amount = amount;
-		wave.pattern = pattern;
+		wave.formation = formation;
 		this.Waves.Add(wave);
 	}
 
@@ -56,8 +82,16 @@ public class Level
 				"\n\tTime: " + wave.time + 
 				"\n\tEnemy: " + wave.enemytype +
 				"\n\tAmount: " + wave.amount +
-				"\n\tFormation: " + wave.pattern.ToString()
+			    "\n\tFormation: " + wave.formation.ToString()
 			);
 		}
 	}
+	
+	
+	/*
+	[XmlEnum("Line")]Line,
+	[XmlEnum("Circle")]Circle,
+	[XmlEnum("Sine")]Sine,
+	[XmlEnum("Wait")]Wait
+	*/
 }

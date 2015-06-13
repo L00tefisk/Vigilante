@@ -29,7 +29,7 @@ public class XMLParser
 	public void Serialize (System.Object obj, string filename)
 	{
 		string filePath = projectPath + filename + ".xml";
-		XmlSerializer serializer = new XmlSerializer (obj.GetType ());
+ 		XmlSerializer serializer = new XmlSerializer (obj.GetType ());
 		
 		TextWriter writer = new StreamWriter (filePath);
 		

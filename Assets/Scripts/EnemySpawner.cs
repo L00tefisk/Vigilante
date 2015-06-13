@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour {
 		levelList.Add(level1);
 		//ImportLevels();
 		
-		//StartCoroutine(processLevel());
+		StartCoroutine(processLevel());
 		
 	}
 	
@@ -48,22 +48,22 @@ public class EnemySpawner : MonoBehaviour {
 			if (waveIndex < currentLevel.Waves.Count && time >= currentLevel.Waves[waveIndex].time) 
 			{
 				Level.Wave wave = currentLevel.Waves[waveIndex];
-				switch (wave.pattern) 
+				switch (wave.formation) 
 				{
-					case Level.Pattern.Line:
+					case Level.Formation.Line:
 						for (int i = 0; i < wave.amount; i++) {
 							Utils.spawnObject(wave.enemytype, new Vector3(transform.position.x + (i * 2), 0, 0), 0);
 							yield return new WaitForSeconds(0.2f);
 						}
 						break;
-					case Level.Pattern.Circle:
+					case Level.Formation.Circle:
 						for (int i = 0; i < wave.amount; i++) {
 							float x = 2 * Mathf.Sin(2 * Mathf.PI/wave.amount * i) + transform.position.x;
 							float y = 2 * Mathf.Cos(2 * Mathf.PI/wave.amount * i);
 							Utils.spawnObject(wave.enemytype, new Vector3(x, y, 0), 0);
 						}
 						break;
-					case Level.Pattern.Square:
+					case Level.Formation.Square:
 						Utils.spawnObject(wave.enemytype, new Vector3(transform.position.x - 1, -1, 0), 0);
 						Utils.spawnObject(wave.enemytype, new Vector3(transform.position.x - 1, +1, 0), 0);
 						Utils.spawnObject(wave.enemytype, new Vector3(transform.position.x + 1, -1, 0), 0);

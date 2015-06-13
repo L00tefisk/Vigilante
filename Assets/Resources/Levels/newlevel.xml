@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Level xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Waves>
+    <Wave>
+      <time>5</time>
+      <enemytype>Seedling</enemytype>
+      <amount>4</amount>
+      <formation>Line</formation>
+      <moveset>
+        <Move duration="3">Circle</Move>
+        <Move duration="1">Wait</Move>
+        <Move duration="2">Sine</Move>
+      </moveset>
+    </Wave>
+  </Waves>
+</Level>
