@@ -2,6 +2,12 @@
 <Level xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <map>Ice</map>
   <Waves>
+	<Wave>
+      <time>0</time>
+      <enemytype>Seedling</enemytype>
+      <amount>8</amount>
+      <pattern>Circle</pattern>
+    </Wave>
     <Wave>
       <time>5</time>
       <enemytype>Seedling</enemytype>

@@ -23,43 +23,59 @@ public class EnemySpawner : MonoBehaviour {
 		Level level1 = parser.Deserialize<Level>("test");
 		levelList.Add(level1);
 		//ImportLevels();
+		
+		//StartCoroutine(processLevel());
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		
-		Level currentLevel = levelList[0];
-		
-		if (once == 1) {
-			currentLevel.Print();
-			once = 0;
-		}
-		
-		time += (Time.deltaTime);
-        
-		if (waveIndex < currentLevel.Waves.Count && time >= currentLevel.Waves[waveIndex].time) 
+	}
+	
+	private IEnumerator processLevel() {
+		int startTime = (int)Time.time;
+		while(true) 
 		{
-			Level.Wave wave = currentLevel.Waves[waveIndex];
+			Level currentLevel = levelList[0];
 			
-			switch (wave.pattern) 
-			{
-				case Level.Pattern.Line:
-					for (int i = 0; i < wave.amount; i++)
-						Utils.spawnObject(wave.enemytype, new Vector3(transform.position.x + (i * 2), 0, 0), 0);
-					break;
-				case Level.Pattern.Circle:
-					break;
-				case Level.Pattern.Square:
-					Utils.spawnObject(wave.enemytype, new Vector3(transform.position.x - 1, -1, 0), 0);
-					Utils.spawnObject(wave.enemytype, new Vector3(transform.position.x - 1, +1, 0), 0);
-					Utils.spawnObject(wave.enemytype, new Vector3(transform.position.x + 1, -1, 0), 0);
-					Utils.spawnObject(wave.enemytype, new Vector3(transform.position.x + 1, +1, 0), 0);
-					break;
-				default:
-					Utils.spawnObject(wave.enemytype, new Vector3(transform.position.x, Random.Range(-7, 7), 0), 0);
-					break;
+			if (once == 1) {
+				currentLevel.Print();
+				once = 0;
 			}
-			waveIndex++;
-      	}
+			
+			time = (int)Time.time - startTime;
+			
+			if (waveIndex < currentLevel.Waves.Count && time >= currentLevel.Waves[waveIndex].time) 
+			{
+				Level.Wave wave = currentLevel.Waves[waveIndex];
+				switch (wave.pattern) 
+				{
+					case Level.Pattern.Line:
+						for (int i = 0; i < wave.amount; i++) {
+							Utils.spawnObject(wave.enemytype, new Vector3(transform.position.x + (i * 2), 0, 0), 0);
+							yield return new WaitForSeconds(0.2f);
+						}
+						break;
+					case Level.Pattern.Circle:
+						for (int i = 0; i < wave.amount; i++) {
+							float x = 2 * Mathf.Sin(2 * Mathf.PI/wave.amount * i) + transform.position.x;
+							float y = 2 * Mathf.Cos(2 * Mathf.PI/wave.amount * i);
+							Utils.spawnObject(wave.enemytype, new Vector3(x, y, 0), 0);
+						}
+						break;
+					case Level.Pattern.Square:
+						Utils.spawnObject(wave.enemytype, new Vector3(transform.position.x - 1, -1, 0), 0);
+						Utils.spawnObject(wave.enemytype, new Vector3(transform.position.x - 1, +1, 0), 0);
+						Utils.spawnObject(wave.enemytype, new Vector3(transform.position.x + 1, -1, 0), 0);
+						Utils.spawnObject(wave.enemytype, new Vector3(transform.position.x + 1, +1, 0), 0);
+						break;
+					default:
+						Utils.spawnObject(wave.enemytype, new Vector3(transform.position.x, Random.Range(-7, 7), 0), 0);
+						break;
+				}
+				waveIndex++;
+			}
+			yield return null;
+		}
 	}
 }

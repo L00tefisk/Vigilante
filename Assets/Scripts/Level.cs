@@ -53,7 +53,7 @@ public class Level
 		foreach (Wave wave in this.Waves)
 		{
 			Debug.Log("Wave " + (Waves.IndexOf(wave) + 1) + 
-				"\n\tLength: " + wave.time + 
+				"\n\tTime: " + wave.time + 
 				"\n\tEnemy: " + wave.enemytype +
 				"\n\tAmount: " + wave.amount +
 				"\n\tFormation: " + wave.pattern.ToString()

@@ -25,7 +25,7 @@ public class Seedling : Enemy {
 		//velmod = Utils.getVelocityModifier(transform.localEulerAngles.z-180);
 		//rigidbody2D.AddForce(_speed * velmod * 40 * Time.deltaTime);
 		if (IsAlive)
-			rigidbody2D.MovePosition(new Vector2 (rigidbody2D.position.x - (0.01f * Speed), startY + Mathf.Sin(Lifetime * 1.5f) * maxY));
+			rigidbody2D.MovePosition(new Vector2 (rigidbody2D.position.x - (0.01f * Speed), startY + Mathf.Sin(Lifetime * 3f)));
 		
 		if (rigidbody2D.position.x < -20) {
 			Nuke();
