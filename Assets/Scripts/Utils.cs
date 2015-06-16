@@ -14,13 +14,12 @@ public class Utils : MonoBehaviour {
 		instance.transform.Rotate(new Vector3(0, 0, rotation));
 	}
 	
-	public static void spawnEnemy<T>(string objName, Vector3 position, float rotation, List<Level.Move> moveset) {
-		Enemy instance = (GameObject)Instantiate(Resources.Load("Prefabs/"+objName));
-		instance.SetMoveset(moveset);
+	public static void spawnEnemy<T>(T obj, string objName, Vector3 position, List<Level.Move> moveset) where T : Enemy {
+		obj = (T)Instantiate(Resources.Load("Prefabs/"+objName));
+		obj.SetMoveset(moveset);
 		
-		instance = (T)instance;
-		instance.transform.position = new Vector3(position.x, position.y, 0);
-		instance.transform.Rotate(new Vector3(0, 0, rotation));
+		//instance = (T)instance;
+		obj.transform.position = new Vector3(position.x, position.y, 0);
 	}
 
 	//To make objects move according to their rotation
