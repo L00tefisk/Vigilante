@@ -20,31 +20,7 @@ namespace WaveEditor.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
-        private string _selectedType { get; set; }
-        public string SelectedType
-        {
-            get
-            {
-                return _selectedType;
-            }
-            set
-            {
-                _selectedType = value;
-                RaisePropertyChanged(() => SelectedType);
-            }
-        }
-
-        private ObservableCollection<string> _enemyTypes;
-        public ObservableCollection<string> EnemyTypes
-        {
-            get
-            {
-                return _enemyTypes;
-            }
-        }
-
         private Level _level;
-
         public Level Level
         {
             get
@@ -57,7 +33,62 @@ namespace WaveEditor.ViewModel
                 RaisePropertyChanged(() => Level);
             }
         }
-        public ObservableCollection<Level.Wave> Waves
+
+
+        #region Move
+        public IEnumerable<Move.Motion> Motions
+        {
+            get
+            {
+                return (IEnumerable<Move.Motion>)Enum.GetValues(typeof(Move.Motion));
+            }
+        }
+        public ObservableCollection<Move> Moveset
+        {
+            get
+            {
+                if (SelectedWave != null)
+                    return SelectedWave.Moveset;
+                return null;
+            }
+            set
+            {
+                SelectedWave.Moveset = value;
+                RaisePropertyChanged(() => Moveset);
+            }
+        }
+        private Move _selectedMove { get; set; }
+        public Move SelectedMove
+        {
+            get
+            {
+                return _selectedMove;
+            }
+            set
+            {
+                _selectedMove = value;
+                RaisePropertyChanged(() => SelectedMove);
+            }
+        }
+
+        #endregion
+
+        #region Wave
+        public IEnumerable<Wave.Formation> Formations
+        {
+            get
+            {
+                return (IEnumerable<Wave.Formation>)Enum.GetValues(typeof(Wave.Formation));
+            }
+        }
+        public IEnumerable<Wave.EnemyType> EnemyTypes
+        {
+            get
+            {
+                return (IEnumerable<Wave.EnemyType>)Enum.GetValues(typeof(Wave.EnemyType));
+            }
+        }
+        public ObservableCollection<Wave> Waves
         {
             get
             {
@@ -69,8 +100,8 @@ namespace WaveEditor.ViewModel
                 RaisePropertyChanged(() => Waves);
             }
         }
-        private Level.Wave _selectedWave { get; set; }
-        public Level.Wave SelectedWave
+        private Wave _selectedWave { get; set; }
+        public Wave SelectedWave
         {
             get
             {
@@ -82,11 +113,14 @@ namespace WaveEditor.ViewModel
                 RaisePropertyChanged();
             }
         }
+        #endregion
 
         #region Commands
 
         public ICommand NewCommand { get; private set; }
         public ICommand RemoveCommand { get; private set; }
+        public ICommand AddMoveCommand { get; private set; }
+        public ICommand RemoveMoveCommand { get; private set; }
         public ICommand DefaultCommand { get; private set; }
         public ICommand SaveCommand { get; private set; }
         public ICommand LoadCommand { get; private set; }
@@ -99,10 +133,6 @@ namespace WaveEditor.ViewModel
         public MainViewModel()
         {
             Level = new Level();
-            _enemyTypes = new ObservableCollection<string>
-            {
-                "Seedling"
-            };
 
             CreateCommands();
 
@@ -113,6 +143,8 @@ namespace WaveEditor.ViewModel
         {
             NewCommand = new RelayCommand(AddItem);
             RemoveCommand = new RelayCommand(RemoveItem, CanRemove);
+            AddMoveCommand = new RelayCommand(AddMove);
+            RemoveMoveCommand = new RelayCommand(RemoveMove);
             DefaultCommand = new RelayCommand(DefaultLevel);
             SaveCommand = new RelayCommand(Save);
             LoadCommand = new RelayCommand(Load);
@@ -124,12 +156,24 @@ namespace WaveEditor.ViewModel
                 newTime += Waves.Last().time;
 
             Waves.Add(
-                new Level.Wave()
+                new Wave()
                 {
                     amount = 4,
-                    enemyType = Level.EnemyType.Seedling,
-                    formation = Level.Formation.Square,
-                    moveset = null,
+                    enemyType = Wave.EnemyType.Seedling,
+                    formation = Wave.Formation.Square,
+                    Moveset = new ObservableCollection<Move>()
+                    {
+                        new Move()
+                        {
+                            motion = Move.Motion.Sine,
+                            duration = 1
+                        },
+                        new Move()
+                        {
+                            motion = Move.Motion.Circle,
+                            duration = 3
+                        }
+                    },
                     time = newTime
                 }
             );
@@ -138,7 +182,7 @@ namespace WaveEditor.ViewModel
         public void RemoveItem()
         {
             int i = Waves.IndexOf(SelectedWave);
-            Waves.Remove(SelectedWave);
+            Waves.RemoveAt(i);
 
             if (Waves.Count > 0)
             {
@@ -148,7 +192,30 @@ namespace WaveEditor.ViewModel
                     SelectedWave = Waves[i];
             }
         }
+        public void AddMove()
+        {
+            Moveset.Add(
+                new Move()
+                {
+                    motion = 0,
+                    duration = 1
+                }
+            );
+            SelectedMove = Moveset.Last();
+        }
+        public void RemoveMove()
+        {
+            int i = Moveset.IndexOf(SelectedMove);
+            Moveset.RemoveAt(i);
 
+            if (Moveset.Count > 0)
+            {
+                if (i == Moveset.Count)
+                    SelectedMove = Moveset[i - 1];
+                else
+                    SelectedMove = Moveset[i];
+            }
+        }
         private bool CanRemove()
         {
             //return SelectedItem != null;
@@ -158,7 +225,7 @@ namespace WaveEditor.ViewModel
         public void DefaultLevel()
         {
             Level model = new Level();
-            model.Waves = new ObservableCollection<Level.Wave>();
+            model.Waves = new ObservableCollection<Wave>();
 
             PopulateView(model);
         }

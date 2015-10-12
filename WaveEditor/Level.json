@@ -1,45 +1,40 @@
 {
-  "EnemyTypes": [
-    "ZomBear",
-    "ZomBunny",
-    "Hellephant"
-  ],
-  "Enemies": [
+  "Waves": [
     {
-      "TypeName": "ZomBear",
-      "Health": 100,
-      "MoveSpeed": 2.5,
-      "Damage": 15,
-      "AttackSpeed": 0.5,
-      "ScoreValue": 10,
-      "SpawnTime": 3
+      "time": 5,
+      "enemyType": 0,
+      "amount": 4,
+      "formation": 1
     },
     {
-      "TypeName": "ZomBunny",
-      "Health": 100,
-      "MoveSpeed": 3.0,
-      "Damage": 10,
-      "AttackSpeed": 0.5,
-      "ScoreValue": 10,
-      "SpawnTime": 3
+      "time": 10,
+      "enemyType": 0,
+      "amount": 4,
+      "formation": 1
     },
     {
-      "TypeName": "Hellephant",
-      "Health": 100,
-      "MoveSpeed": 2.0,
-      "Damage": 30,
-      "AttackSpeed": 0.5,
-      "ScoreValue": 50,
-      "SpawnTime": 15
+      "time": 15,
+      "enemyType": 0,
+      "amount": 4,
+      "formation": 1
     },
     {
-      "TypeName": "Hellephant",
-      "Health": 1,
-      "MoveSpeed": 2.0,
-      "Damage": 30,
-      "AttackSpeed": 0.5,
-      "ScoreValue": 5,
-      "SpawnTime": 3
+      "time": 20,
+      "enemyType": 0,
+      "amount": 4,
+      "formation": 1
+    },
+    {
+      "time": 25,
+      "enemyType": 0,
+      "amount": 4,
+      "formation": 1
+    },
+    {
+      "time": 30,
+      "enemyType": 0,
+      "amount": 4,
+      "formation": 1
     }
   ]
 }
