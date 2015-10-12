@@ -14,8 +14,8 @@ public class Utils : MonoBehaviour {
 		instance.transform.Rotate(new Vector3(0, 0, rotation));
 	}
 	
-	public static void spawnEnemy<T>(T obj, string objName, Vector3 position, List<Level.Move> moveset) where T : Enemy {
-		obj = (T)Instantiate(Resources.Load("Prefabs/"+objName));
+	public static void spawnEnemy<T>(string objName, Vector3 position, List<Level.Move> moveset) where T : Enemy {
+		T obj = (T)Instantiate(Resources.Load("Prefabs/"+objName));
 		obj.SetMoveset(moveset);
 		
 		//instance = (T)instance;

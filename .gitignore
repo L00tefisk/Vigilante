@@ -5,7 +5,14 @@
 # Inverse ignore some stuff
 !/Assets/
 !/ProjectSettings/
+!/WaveEditor/
+!/Resources (Non Unity)/
 !.gitignore
+!.sln
+
+/WaveEditor/[Oo]bj
+/WaveEditor/[Bb]in
+/.vs
  
 #OS Stuff
 .DS_Store
