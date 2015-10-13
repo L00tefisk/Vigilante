@@ -40,16 +40,27 @@ namespace WaveEditor.ViewModel
         {
             get
             {
-                return (IEnumerable<Move.Motion>)Enum.GetValues(typeof(Move.Motion));
+                return (IEnumerable<Move.Motion>) Enum.GetValues(typeof(Move.Motion));
             }
         }
         public ObservableCollection<Move> Moveset
         {
             get
             {
-                if (SelectedWave != null)
-                    return SelectedWave.Moveset;
-                return null;
+                return SelectedWave?.Moveset; //Null propagation
+                /*return new ObservableCollection<Move>()
+                {
+                    new Move()
+                    {
+                        motion = Move.Motion.Sine,
+                        duration = 1
+                    },
+                    new Move()
+                    {
+                        motion = Move.Motion.Circle,
+                        duration = 3
+                    }
+                };*/
             }
             set
             {
@@ -110,6 +121,8 @@ namespace WaveEditor.ViewModel
             set
             {
                 _selectedWave = value;
+                Moveset = _selectedWave.Moveset;
+                SelectedMove = Moveset[0];
                 RaisePropertyChanged();
             }
         }
@@ -165,14 +178,9 @@ namespace WaveEditor.ViewModel
                     {
                         new Move()
                         {
-                            motion = Move.Motion.Sine,
+                            motion = Move.Motion.Line,
                             duration = 1
                         },
-                        new Move()
-                        {
-                            motion = Move.Motion.Circle,
-                            duration = 3
-                        }
                     },
                     time = newTime
                 }
@@ -202,6 +210,7 @@ namespace WaveEditor.ViewModel
                 }
             );
             SelectedMove = Moveset.Last();
+            RaisePropertyChanged(() => Moveset);
         }
         public void RemoveMove()
         {
